@@ -1,3 +1,5 @@
+export {};
+
 function readFile() {
     return require('fs').readFileSync('input.txt', 'utf8').split('\n');
 }
