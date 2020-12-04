@@ -5,21 +5,21 @@ function readFile() {
 }
 
 function parsePassword(password: string) {
-    let space_separated: string[] = password.split(' ');
+    let space_separated = password.split(' ');
 
-    let min_max: string[] = space_separated[0].split('-');
-    let min: number = parseInt(min_max[0]);
-    let max: number = parseInt(min_max[1]);
+    let min_max = space_separated[0].split('-');
+    let min = parseInt(min_max[0]);
+    let max = parseInt(min_max[1]);
 
-    let char: string = space_separated[1][0];
-    let pass_content: string = space_separated[2];
+    let char = space_separated[1][0];
+    let pass_content = space_separated[2];
 
     return {min: min, max: max, char: char, password: pass_content};
 }
 
 function isValid1(password: string) {
     let parsed = parsePassword(password);
-    let occurences: number = parsed.password.split(parsed.char).length - 1;
+    let occurences = parsed.password.split(parsed.char).length - 1;
     return occurences >= parsed.min && occurences <= parsed.max;
 }
 
