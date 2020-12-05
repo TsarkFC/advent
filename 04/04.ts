@@ -26,15 +26,15 @@ function getValidECL(fields: string[]) {
 function getValidHGT(fields: string[]) {
     let inches = fields.find(elem => elem.match(/^hgt:[0-9]*in$/));
     let cm = fields.find(elem => elem.match(/^hgt:[0-9]*cm$/));
-    
+
     if (inches == undefined && cm == undefined) return false;
     else if (inches != undefined) {
-        let in_num = parseInt(inches.slice(4,-2));
+        let in_num = parseInt(inches.slice(4, -2));
         return in_num <= 76 && in_num >= 59;
-    }else if (cm != undefined) {
-        let cm_num = parseInt(cm.slice(4,-2));
+    } else if (cm != undefined) {
+        let cm_num = parseInt(cm.slice(4, -2));
         return cm_num <= 193 && cm_num >= 150;
-    }return false;
+    } return false;
 }
 
 function getValidPID(fields: string[]) {
