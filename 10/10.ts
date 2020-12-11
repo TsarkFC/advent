@@ -22,6 +22,22 @@ function part2() {
     values.push(0);
     let sortedValues = values.sort((a, b) => a - b);
 
+    return recursive(0, sortedValues, []);
+}
+
+function recursive(i: number, values: number[], dp: number[]) {
+    if (i == values.length - 1) return 1;
+    if (dp.includes(i)) return dp[i];
+
+    let res = 0;
+
+    for (let j = i + 1; j < values.length; j++) {
+        if (values[j] - values[i] <= 3)
+            res += recursive(j, values, dp);
+    }
+
+    dp[i] = res;
+    return res;
 }
 
 console.log('Result1:', part1());
