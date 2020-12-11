@@ -27,7 +27,7 @@ function part2() {
 
 function recursive(i: number, values: number[], dp: number[]) {
     if (i == values.length - 1) return 1;
-    if (dp.includes(i)) return dp[i];
+    if (dp[i] != null) return dp[i];
 
     let res = 0;
 
